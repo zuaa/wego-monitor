@@ -11,7 +11,9 @@
 		<gmavenVersion>1.4</gmavenVersion>
 		<gmavenProviderSelection>1.8</gmavenProviderSelection>
 		<groovyVersion>1.8.8</groovyVersion>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+ 
 	<dependencies>
 
 		<dependency>
