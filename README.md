@@ -7,10 +7,10 @@ wego-monitor
 调用当方法
 http://ip/productName/Grab?url=http://www.baidu.com&eval=x.select('form').size()%20==1
 
-eval后面是一个jsop的语法，x就是url之后的对象。相当于：Document x =Jsoup.parse(html);
+eval后面是一个jsoup的语法，x就是url之后的对象。相当于：Document x =Jsoup.parse(html);
 
 
- 
+jsoup的介绍，官方网站-->http://jsoup.org/
 
 
 ===============================

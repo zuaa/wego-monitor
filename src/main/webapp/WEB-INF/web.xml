@@ -25,4 +25,14 @@
     <servlet-name>Grab</servlet-name>
     <url-pattern>/Grab</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReadItInMyKindle</display-name>
+    <servlet-name>ReadItInMyKindle</servlet-name>
+    <servlet-class>com.wego.ReadItInMyKindle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReadItInMyKindle</servlet-name>
+    <url-pattern>/ReadItInMyKindle</url-pattern>
+  </servlet-mapping>
 </web-app>
