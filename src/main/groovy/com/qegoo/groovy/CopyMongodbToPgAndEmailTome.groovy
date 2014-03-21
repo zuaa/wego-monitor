@@ -1,0 +1,64 @@
+package com.qegoo.groovy
+
+import org.apache.commons.mail.EmailAttachment
+import org.apache.commons.mail.MultiPartEmail
+
+import com.gmongo.GMongo
+
+def sendername="zu-q"
+def psw="xuping@5605"
+
+
+MultiPartEmail email = new MultiPartEmail();
+email.setHostName("smtp.163.com");
+email.setCharset("utf-8");
+email.addTo("xuping@gecpp.com");
+email.addTo("robinwu@gecpp.com");
+email.setFrom("${sendername}@163.com", "xuping");
+email.setAuthentication("${sendername}", psw);
+email.setSubject("报告");
+
+def gmongo = new GMongo("192.168.3.140:27017")
+def db = gmongo.getDB("qegoo")
+def path="c:\\"
+
+def javascript=[
+	"part_day_report",
+	"part_month_report",
+	"part_report",
+	"part_year_report",
+	"shop_day_report",
+	"shop_month_report",
+	"shop_report",
+	"shop_year_report",
+	"user_day_report",
+	"user_month_report",
+	"user_report",
+	"user_year_report"
+]
+javascript.each{js->
+	EmailAttachment attachment = new EmailAttachment();
+	db.eval("${js}")
+	def report=	db."${js}".find(year:[$ne:2000]).toArray()
+	def out = new File("${path}\\${js}.csv")
+	def head=null
+	report.each {
+		if(head==null){
+			head=[]
+			it.each{ head<<it.key }
+			out.append head.join(',')
+			out.append '\n'
+		}
+		def row = []
+		it.each{ row<<it.value }
+		out.append row.join(',')
+		out.append '\n'
+	}
+	attachment.setPath(out.getPath());
+	attachment.setDisposition(EmailAttachment.ATTACHMENT);
+	email.attach(attachment);
+}
+email.setMsg("请查看附件");
+println("send email")
+email.send();
+

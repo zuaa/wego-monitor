@@ -6,7 +6,7 @@ class Email {
 
 	static main(args) {
 		//sendEmail "111", "1502382668", "zuaa@163.com"
-		sendEmailWithAttachment "ÓÊ¼þ´øÓÐ¸½¼þÔ¤ÀÀ", "1502382668Á´½Ó£¬Èô", "zuaa@163.com","c://1.txt"  
+		sendEmailWithAttachment "1", "1", "zuaa@163.com","c://1.txt"  
 	}
 
 	static String saveMessage(String subject, String massage) {
@@ -16,7 +16,7 @@ class Email {
 		HtmlEmail email = new HtmlEmail();
 		email.setHostName("smtp.163.com");
 		email.setCharset("utf-8");
-		email.addTo(to, "ºÚ¼§");
+		email.addTo(to, "ï¿½Ú¼ï¿½");
 		email.setFrom("zuaa-q@163.com", "xuping");
 		email.setAuthentication("zuaa-q", "seedcat");
 		email.setSubject(subject);
@@ -33,7 +33,7 @@ class Email {
 		MultiPartEmail email = new MultiPartEmail();
 		email.setHostName("smtp.163.com");
 		email.setCharset("utf-8");
-		email.addTo(to, "ºÚ¼§");
+		email.addTo(to, "ï¿½Ú¼ï¿½");
 		email.setFrom("zuaa-q@163.com", "xuping");
 		email.setAuthentication("zuaa-q", "seedcat");
 		email.setSubject(subject); 
