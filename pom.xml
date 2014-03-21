@@ -13,7 +13,7 @@
 		<groovyVersion>1.8.8</groovyVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
- 
+
 	<dependencies>
 
 		<dependency>
@@ -69,6 +69,7 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
 		</dependency>
+		 
 	</dependencies>
 	<build>
 		<plugins>
