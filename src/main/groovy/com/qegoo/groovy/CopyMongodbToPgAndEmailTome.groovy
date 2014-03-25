@@ -5,6 +5,11 @@ import org.apache.commons.mail.MultiPartEmail
 
 import com.gmongo.GMongo
 
+def gmongo = new GMongo("192.168.3.140:27017")
+def db = gmongo.getDB("qegoo")
+def path="c:\\"
+
+
 def sendername="zu-q"
 def psw="xuping@5605"
 
@@ -13,14 +18,11 @@ MultiPartEmail email = new MultiPartEmail();
 email.setHostName("smtp.163.com");
 email.setCharset("utf-8");
 email.addTo("xuping@gecpp.com");
-email.addTo("robinwu@gecpp.com");
+//email.addTo("robinwu@gecpp.com");
 email.setFrom("${sendername}@163.com", "xuping");
 email.setAuthentication("${sendername}", psw);
-email.setSubject("报告");
+email.setSubject("${new Date()}报告");
 
-def gmongo = new GMongo("192.168.3.140:27017")
-def db = gmongo.getDB("qegoo")
-def path="c:\\"
 
 def javascript=[
 	"part_day_report",
@@ -36,9 +38,11 @@ def javascript=[
 	"user_report",
 	"user_year_report"
 ]
+def message=""
 javascript.each{js->
 	EmailAttachment attachment = new EmailAttachment();
-	db.eval("${js}")
+	message=message+ "js:${js}() 执行完成，\n"
+	db.eval("${js}()")
 	def report=	db."${js}".find(year:[$ne:2000]).toArray()
 	def out = new File("${path}\\${js}.csv")
 	def head=null
@@ -46,7 +50,7 @@ javascript.each{js->
 		if(head==null){
 			head=[]
 			it.each{ head<<it.key }
-			out.append head.join(',')
+			out.write head.join(',')//write   保证删除原来的内容
 			out.append '\n'
 		}
 		def row = []
@@ -58,7 +62,8 @@ javascript.each{js->
 	attachment.setDisposition(EmailAttachment.ATTACHMENT);
 	email.attach(attachment);
 }
-email.setMsg("请查看附件");
+message=message+ "出现中文乱码，请将csv用记事本打开，另存为windows（ansi格式）格式的文件，然后用excel打开，就可以解决乱码问题，\n"
+email.setMsg("${message}\n 请查看附件");
 println("send email")
 email.send();
 
