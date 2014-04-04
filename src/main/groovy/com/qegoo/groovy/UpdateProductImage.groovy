@@ -19,9 +19,6 @@ class UpdateProductImage {
 					stmt.addBatch( local_resource: util.MD5.generateMD5(it.big_resource)+".jpg",id: it.id ) 
 				}
 			}
-
 		}
-
 	}
-
 }
