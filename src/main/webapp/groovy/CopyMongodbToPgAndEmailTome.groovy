@@ -1,26 +1,20 @@
 import org.apache.commons.mail.EmailAttachment
 import org.apache.commons.mail.MultiPartEmail
-
 import com.gmongo.GMongo
-
 def gmongo = new GMongo("192.168.3.113:27017")
 def db = gmongo.getDB("qegoo")
 def path="/home/java/.groovy"
-
 def sendername="qegoologs@qegoo.cn"
 def psw="qegoo!@#2014"
-
-
 MultiPartEmail email = new MultiPartEmail();
 email.setHostName("113.106.92.173");
 email.setCharset("utf-8");
 email.addTo("xuping@gecpp.com");
-email.addTo("robinwu@gecpp.com");
+email.addTo("robinwu@gecpp.com"); 
+
 email.setFrom("${sendername}", "qegoo report robot");
 email.setAuthentication("${sendername}", psw);
 email.setSubject(" ${new Date()} 报告");
-
-
 def javascript=[
         "part_day_report",
         "part_month_report",
@@ -58,7 +52,6 @@ javascript.each{js->
         attachment.setPath(out.getPath());
         attachment.setDisposition(EmailAttachment.ATTACHMENT);
         email.attach(attachment);
-
 }
 message=message+ "出现中文乱码，请将csv用记事本打开，另存为windows（ansi格式）格式的文件，然后用excel打开，就可以解决乱码问题，\n"
 email.setMsg("${message}\n 请查看附件");

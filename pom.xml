@@ -87,18 +87,12 @@
 			<artifactId>ant-commons-net</artifactId>
 			<version>1.6</version>
 		</dependency>
-		  <dependency>
-        <groupId>commons-net</groupId>
-        <artifactId>commons-net</artifactId>
-        <version>2.0</version>
-      </dependency>
-       <dependency>
-        <groupId>com.xlson.groovycsv</groupId>
-        <artifactId>groovycsv</artifactId>
-        <version>0.2</version>
-      </dependency>
-    
-      
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>2.0</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -124,7 +118,7 @@
 				<version>2.1</version>
 				<configuration>
 					<port>8090</port>
-					<path>/tomcat6-demo</path>
+					<path>/jiankong</path>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -133,7 +127,7 @@
 				<version>2.1</version>
 				<configuration>
 					<port>8090</port>
-					<path>/tomcat7-demo</path>
+					<path>/jiankong</path>
 				</configuration>
 			</plugin>
 		</plugins>
