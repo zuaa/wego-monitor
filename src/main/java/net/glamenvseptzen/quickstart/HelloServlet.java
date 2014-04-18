@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.qegoo.groovy.CopyMongodbToPgAndEmailTome;
+
 public class HelloServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -43,8 +45,8 @@ public class HelloServlet extends HttpServlet {
         for (String s : caps) {
             out.println("<li>" + s + "</li>");
         }
-        out.println("</ul>");
-
+        out.println("</ul>${CopyMongodbToPgAndEmailTome.runme()}");
+  
         out.println("</body>");
         out.println("</html>");
         out.close();

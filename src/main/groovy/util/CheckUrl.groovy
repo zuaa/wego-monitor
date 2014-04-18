@@ -6,12 +6,12 @@ import org.jsoup.nodes.Document
 class CheckUrl {
 
 	static main(args) {
-		
-		def t="http://www.qegoo.cn".toURL().getText("utf-8");
-		Document doc =Jsoup.parse(t);
-		println  doc.select('a').size();
-	 
-	println c("http://www.qegoo.cn","x.select('a').size() ==345")
+
+		//		def t="http://www.youku.com/show_page/id_z20a394f4b7c111e296da.html".toURL().getText("utf-8");
+		//		Document doc =Jsoup.parse(t);
+		//		println  doc.select('.coll_10 li').size();
+
+		println c("http://www.youku.com/show_page/id_z20a394f4b7c111e296da.html","x.select('.coll_10 li').size() >=20 ")
 		//	println  c("http://www.baidu.com","x.select('form').size() ==2")
 	}
 

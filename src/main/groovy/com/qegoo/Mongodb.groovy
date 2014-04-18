@@ -12,13 +12,13 @@ class Mongodb {
 		int i=0; 
 		60.times{
 				def path="C:\\AAAAAA_pic\\2014-1-15\\${it}";
-			new File(path).eachFileRecurse {
+				new File(path).eachFileRecurse {
 				i=i+1
-				//ÕâÀïµÄ File ±íÊ¾µÄÊÇÒ»¸öÂ·¾¶
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ File ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½
 				def name="${it.name}" ;
 			//	println myFS.find(it.name)
 				if(myFS.find(it.name).size()>0){
-					 println "ÒÑ¾­´æÔÚ ${it.name}"
+					 println "ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ ${it.name}"
 				}else{
 					File f =new File("${path}\\${it.name}");
 					if(f.isFile()){

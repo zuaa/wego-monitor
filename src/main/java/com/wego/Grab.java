@@ -32,17 +32,18 @@ public class Grab extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		PrintWriter out = response.getWriter();
-		
-	
-		if(!CheckUrl.c(request.getParameter("url"),
-				request.getParameter("eval"))){ 
-			Email.sendEmail("error", request.getParameter("url")+request.getParameter("eval"), "zuaa@163.com");
-			out.println(false); 
-		}else{
-			out.println(true); 
+		String msg = request.getParameter("msg");
+		if (msg == null) {
+			msg = "";
 		}
-		
-		
+		if (!CheckUrl.c(request.getParameter("url"),
+				request.getParameter("eval"))) {
+			Email.sendEmail("you have message", msg, "zuaa@163.com");
+			out.println(false);
+		} else {
+			out.println(true);
+		}
+
 		out.close();
 	}
 
