@@ -29,9 +29,19 @@ allUpstream=""
 	println service(portstat++,"http://heiji${it}zuaa.appspot.com/");
 }
 
-( [1,2,3,4,5,6,7,8,9,10] as String[]).each{
+( [99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123] as String[]).each{
 	allUpstream=allUpstream+upstream(portstat);
-	println service(portstat++,"http://qegoo-${it}zuaa.appspot.com/");
+	println service(portstat++,"http://qegoocn-${it}.appspot.com/");
+} 
+ 
+( [99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123] as String[]).each{
+	allUpstream=allUpstream+upstream(portstat);
+	println service(portstat++,"http://qegoocn1-${it}.appspot.com/");
+}
+
+( [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19.20] as String[]).each{
+	allUpstream=allUpstream+upstream(portstat);
+	println service(portstat++,"http://qegoo-${it}.appspot.com/");
 }
 
 println """  upstream yungoogle{"""
