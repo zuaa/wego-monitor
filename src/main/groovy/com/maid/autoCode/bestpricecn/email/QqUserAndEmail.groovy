@@ -1,8 +1,9 @@
 package com.maid.autoCode.bestpricecn.email
 
+import org.apache.commons.mail.HtmlEmail
 import org.openqa.selenium.By
-
-import com.maid.autoCode.bestpricecn.MyWebDriver
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.firefox.FirefoxDriver
 /**
  * Created with IntelliJ IDEA.
  * User: xuping
@@ -10,9 +11,10 @@ import com.maid.autoCode.bestpricecn.MyWebDriver
  * Time: 上午10:10
  * To change this template use File | Settings | File Templates.
  */
-class QqUserAndEmail extends MyWebDriver {
+class QqUserAndEmail  {
 
 	static main(args) {
+		WebDriver driver = new FirefoxDriver();
 		driver.get("http://zc.qq.com/chs/index.html");
 		driver.findElement(By.cssSelector("div.box.box_3 > label.item")).click();
 		driver.findElement(By.id("nick")).clear();
@@ -42,5 +44,21 @@ class QqUserAndEmail extends MyWebDriver {
 		if (aaa != null) {
 			saveMessage "[qq账户信息]" aaa
 		}
+	}
+	
+	static String saveMessage(String subject, String massage) {
+		sendEmail subject, massage, "zuaa@163.com"
+	}
+
+	static String sendEmail(String subject, String msg, String to) {
+		HtmlEmail email = new HtmlEmail();
+		email.setHostName("113.106.92.173");
+		email.setCharset("utf-8");
+		email.addTo(to, "黑姬");
+		email.setFrom("service@qic.com.cn", "xuping");
+		email.setAuthentication("service@qic.com.cn", "qic2010");
+		email.setSubject(subject);
+		email.setMsg(msg);
+		email.send();
 	}
 }

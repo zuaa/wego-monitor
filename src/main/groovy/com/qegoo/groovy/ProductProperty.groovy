@@ -30,6 +30,8 @@ values (  :model_name,   :propertyname , :propertyvalue,:productId) """){ insert
 
 							map.each {mapone->
 								insertIt.addBatch([model_name:it1.model_name,propertyname:mapone.key,propertyvalue:mapone.value,productId:it1.id]) ;
+						
+								
 							}
 
 						}else{

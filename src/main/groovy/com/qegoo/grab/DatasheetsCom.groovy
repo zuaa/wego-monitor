@@ -31,7 +31,7 @@ class DatasheetsCom {
 				
 				println "开始抓取 ${it.modelname} 使用： ${searchmodelname}进行搜索" 
 				//http://127.0.0.1/proxy?target_url=  这里个代理之后的链接
-				def url="http://127.0.0.1:30008/proxy?target_url=http://www.datasheets.com/search/insatancepartsearch"
+				def url="http://heiji0zuaa.appspot.com/proxy?target_url=http://www.datasheets.com/search/insatancepartsearch"
 				
 				//google 总代  http://127.0.0.1:30008/
 				
@@ -97,9 +97,9 @@ class DatasheetsCom {
 						}
 					} 
 				}
+			 
 				if(doc!=null){
-					println "抓取到数据（${searchmodelname}） 开始分析页面，并保存到数据   "
-
+					println "抓取到数据（${searchmodelname} ||||||||||||||||||||） 开始分析页面，并保存到数据   " 
 					if(doc.html().contains("Sorry")){
 
 						if(doc.html().contains("no results"))  {
@@ -118,6 +118,7 @@ class DatasheetsCom {
 						println "save ${it}";
 					}
 				}else{
+				
 					//抓取失败，标记一下
 					it<<[state:"0"]
 					db.datasheets.save it
@@ -126,17 +127,16 @@ class DatasheetsCom {
 				if(times++%5==0){
 					println("抓5个休息1妙（=======暂X停======）")
 					//抓5个休息1妙
-					Thread.sleep(3*1000);
+					Thread.sleep(1*1000);
 				} 
 				println "执行的时间是 ${(System.currentTimeMillis()-man)/1000}"
 				man=System.currentTimeMillis();
 				println "开始抓取时间${kaishishijian}      抓取的数据：${chaxuncishu}  网站请求的次数${chaxuncishu2}"
 			}
 			println("抓一组休息10妙（=======暂X停======）")
-			Thread.sleep(10*1000);
+			Thread.sleep(3*1000);
 		}
-
-
+ 
 	}
 	static def save(trs1,db){
 		println "开始抓取时间${kaishishijian}}"
