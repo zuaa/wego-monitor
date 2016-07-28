@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import util.CheckUrl;
-import util.Email;
 
 /**
  * Servlet implementation class Grab
@@ -34,13 +32,13 @@ public class Grab extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 	
-		if(!CheckUrl.c(request.getParameter("url"),
-				request.getParameter("eval"))){ 
-			Email.sendEmail("error", request.getParameter("url")+request.getParameter("eval"), "zuaa@163.com");
-			out.println(false); 
-		}else{
-			out.println(true); 
-		}
+//		if(!CheckUrl.c(request.getParameter("url"),
+//				request.getParameter("eval"))){
+//			Email.sendEmail("error", request.getParameter("url")+request.getParameter("eval"), "zuaa@163.com");
+//			out.println(false);
+//		}else{
+//			out.println(true);
+//		}
 		
 		
 		out.close();

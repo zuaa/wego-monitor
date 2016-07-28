@@ -28,7 +28,7 @@ public class ReadItInMyKindle extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter(); 
-		out.println(util.ReadItInMyKindle.emailKindle(request.getParameter("url")));
+//		out.println(util.ReadItInMyKindle.emailKindle(request.getParameter("url")));
 
 		out.close();
 	}

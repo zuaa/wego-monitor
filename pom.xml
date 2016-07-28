@@ -69,9 +69,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.rethinkdb</groupId>
-			<artifactId>rethink-java-driver</artifactId>
-			<version>0.3</version>
+			<groupId>dev.xwolf.framework</groupId>
+			<artifactId>framework-common-utils</artifactId>
+			<version>2.0.18</version>
 		</dependency>
 
 	</dependencies>

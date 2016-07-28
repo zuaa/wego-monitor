@@ -25,7 +25,7 @@ public class HelloServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.println("<html>");
         out.println("<body>");
-        out.println(MyGroovyUtil.greed("Servlet Programming"));
+//        out.println(MyGroovyUtil.greed("Servlet Programming"));
         out.println("<hr>");
 
         String caps[] = MyStringUtil.splitAndCapitalize(
