@@ -1,5 +1,6 @@
 package cc.xwolf.url.controller;
 
+import cc.xwolf.url.HttpUtils;
 import lombok.extern.java.Log;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -23,16 +24,8 @@ String owner;
     return owner;
   }
   @RequestMapping(value = "/grab")
-  public String grab( String url,String left,String right) {
-    try {
-      Document doc = Jsoup.connect(url).get();
-
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
-    return owner;
+  public boolean grab( String url,int code ) {
+    return HttpUtils.state(url)==code;
   }
 
 }
