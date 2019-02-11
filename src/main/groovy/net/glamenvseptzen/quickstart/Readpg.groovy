@@ -1,5 +1,4 @@
-import dev.xwolf.framework.common.utils.net.ProductSimilarity
-import groovy.sql.Sql
+ import groovy.sql.Sql
 
 /**
  * Created by zuaa on 16-7-28.
