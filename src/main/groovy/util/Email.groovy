@@ -18,7 +18,7 @@ class Email {
 		email.setCharset("utf-8");
 		email.addTo(to, "ºÚ¼§");
 		email.setFrom("zuaa-q@163.com", "xuping");
-		email.setAuthentication("zuaa-q", "seedcat");
+		email.setAuthentication("zuaa-q", "------");
 		email.setSubject(subject);
 		email.setMsg(msg);
 		email.send();
@@ -35,7 +35,7 @@ class Email {
 		email.setCharset("utf-8");
 		email.addTo(to, "ºÚ¼§");
 		email.setFrom("zuaa-q@163.com", "xuping");
-		email.setAuthentication("zuaa-q", "seedcat");
+		email.setAuthentication("zuaa-q", "--------");
 		email.setSubject(subject); 
 		email.attach(attachment); 
 		email.setMsg(msg);
