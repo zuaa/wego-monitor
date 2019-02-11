@@ -4,11 +4,11 @@ wego-monitor
 
 监控
 ==============================
-调用当方法
-http://127.0.0.1:4287/monitor/grab?url=http://baidu.com&code=200
-    true
-http://127.0.0.1:4287/monitor/grab?url=http://baidu.com&code=202
-    false
+    调用当方法
+    http://127.0.0.1:4287/monitor/grab?url=http://baidu.com&code=200
+        true
+    http://127.0.0.1:4287/monitor/grab?url=http://baidu.com&code=202
+        false
 --------------
 没有注册中心的可以注释掉
 Application下的代码
