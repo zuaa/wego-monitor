@@ -1,12 +1,6 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# Directories #
-.settings/*
-target/*
-test-output/*
-/target
+.idea/
+.settings/
+.vscode/
+target/
+jiankong.iml
+.project
