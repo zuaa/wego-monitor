@@ -23,6 +23,13 @@ String owner;
     log.info(" ====messageBusClient====");
     return owner;
   }
+
+  /**
+   * 检测指定url的http请求返回的状态码
+   * @param url
+   * @param code
+   * @return
+   */
   @RequestMapping(value = "/grab")
   public boolean grab( String url,int code ) {
     return HttpUtils.state(url)==code;

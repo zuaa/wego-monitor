@@ -8,6 +8,12 @@ public class HttpUtils {
     public static void main(String[] args) {
         System.out.println(HttpUtils.state("http://www.baidu.com"));
     }
+
+    /**
+     * 只检测url的code.加快检测速度
+     * @param url
+     * @return
+     */
     public static   int state(String url){
         if (url == null || url.length() <= 0) {
             return 0;
